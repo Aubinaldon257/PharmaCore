@@ -51,7 +51,7 @@ PharmaCore is a small, framework-free application. The interface is in French; t
   <tbody>
     <tr><td><strong>1 · Place</strong></td><td>Put the project in <code>C:\xampp\htdocs\PharmaCore</code>.</td></tr>
     <tr><td><strong>2 · Start</strong></td><td>Start Apache and MySQL from the XAMPP Control Panel.</td></tr>
-    <tr><td><strong>3 · Check</strong></td><td>Use the existing <code>pharmacore_db</code> database and confirm that its schema matches the application.</td></tr>
+    <tr><td><strong>3 · Database</strong></td><td>In phpMyAdmin, select <strong>Import</strong> and import <code>database/pharmacore_db.sql</code> to create the empty <code>pharmacore_db</code> schema.</td></tr>
     <tr><td><strong>4 · Configure</strong></td><td>Set database connection values for your local MySQL instance (see <a href="#database-connection">Database connection</a>).</td></tr>
     <tr><td><strong>5 · Create admin</strong></td><td>If no administrator exists, open <a href="http://localhost/PharmaCore/setup/create_admin.php"><code>http://localhost/PharmaCore/setup/create_admin.php</code></a> locally and create one.</td></tr>
     <tr><td><strong>6 · Open</strong></td><td>Visit <a href="http://localhost/PharmaCore/"><code>http://localhost/PharmaCore/</code></a> for the public site or <a href="http://localhost/PharmaCore/admin/login.php"><code>the admin login</code></a>.</td></tr>
@@ -72,7 +72,7 @@ Configure these environment variables before Apache starts:
 | `PHARMACORE_DB_USER` | Database username |
 | `PHARMACORE_DB_PASSWORD` | Database password |
 
-Defaults for local development are defined in `config/connexion.php`. The application expects the existing tables `utilisateurs`, `medicaments`, `ventes` and `vente_details`; client, notification and password-history features also use their corresponding existing tables. PharmaCore does not drop or replace existing tables or data.
+For a fresh local installation, import [`database/pharmacore_db.sql`](database/pharmacore_db.sql) into MySQL or MariaDB using phpMyAdmin or the command line. It creates the empty `pharmacore_db` database and the tables used by the application; it contains no user, medicine, or sales records. If you already have a database with real data, do not import this schema over it; back up the database and verify the schema first. Defaults for local development are defined in `config/connexion.php`. PharmaCore does not drop or replace existing tables or data.
 
 ## How it works
 
